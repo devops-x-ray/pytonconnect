@@ -162,6 +162,10 @@ class TonConnect:
         await self._provider.disconnect()
         self._on_wallet_disconnected()
 
+    def close_connection(self):
+        if self._provider:
+            self._provider.close_connection()
+
     def pause_connection(self):
         """Pause bridge HTTP connection.
         Might be helpful, if you use SDK on backend and want to save server resources.
